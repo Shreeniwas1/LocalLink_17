@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Optimized Header with Logo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .header {
+      width: 100%;
+      max-width: 1440px;
+      height: 174px;
+      padding: 32px;
+      background: white;
+      border-bottom: 1px solid #E0E0E0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+
+    .navigation {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-pill {
+      padding: 12px 16px;
+      background: #F7F7F7;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      color: #333333;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-pill:hover {
+      background: #E6E6E6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth {
+      display: flex;
+      gap: 16px;
+    }
+
+    .button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button:hover {
+      background: #F0F0F0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .button:last-child {
+      background: #333333;
+      border: 2px solid #333333;
+      color: #FFFFFF;
+    }
+
+    .button:last-child:hover {
+      background: #444444;
+    }
+
+    .button:first-child {
+      background: #FFFFFF;
+      border: 2px solid #767676;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <!-- Logo added to the left side -->
+    <img src="/assets/logo-no-background.png" alt="Company Logo" class="logo">
+    
+    <div class="navigation">
+      <a href="#pricing" class="nav-pill">Pricing</a>
+      <a href="#solutions" class="nav-pill">Solutions</a>
+      <a href="#community" class="nav-pill">Community</a>
+      <a href="#resources" class="nav-pill">Resources</a>
+      <a href="#pricing" class="nav-pill">Pricing</a>
+      <a href="#contact" class="nav-pill">Contact</a>
+    </div>
+    <div class="auth">
+      <button class="button" id="signin-btn">Sign in</button>
+      <button class="button" id="register-btn">Register</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript at the bottom for better loading performance
+    document.getElementById('signin-btn').onclick = function() {
+      location.href = '#signin';
+    };
+
+    document.getElementById('register-btn').onclick = function() {
+      location.href = '#register';
+    };
+  </script>
+</body>
+</html>
