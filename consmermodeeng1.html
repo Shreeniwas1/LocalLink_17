@@ -78,7 +78,7 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="logo.jpg" alt="Logo" /> <!-- Updated image path -->
+            <img src="/assets/logo.png" alt="Logo" /> <!-- Updated image path -->
         </div>
         <nav class="nav-buttons">
             <button class="btn">Home</button>
@@ -94,11 +94,28 @@
             <h3>Filter by Profession</h3>
             <div class="filter-options">
                 <label><input type="checkbox" name="profession" value="electrician" class="filter-checkbox"> Electrician</label>
+                <br>
                 <label><input type="checkbox" name="profession" value="plumber" class="filter-checkbox"> Plumber</label>
-            </div>
-            <div class="add-filter">
-                <input type="text" id="newCategory" placeholder="Add new category">
-                <button id="addCategoryButton">Add</button>
+                <br>
+                <label><input type="checkbox" name="profession" value="painter" class="filter-checkbox"> Painter</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="carpenter" class="filter-checkbox"> Carpenter</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Domestic Cleaner" class="filter-checkbox"> Domestic Cleaner</label>
+                <br>
+                <!-- <label><input type="checkbox" name="profession" value="MilkDeliveryService" class="filter-checkbox"> MilkDeliveryService</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Barber" class="filter-checkbox"> Barber</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Plumber" class="filter-checkbox"> Plumber</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Electrical Technician" class="filter-checkbox"> Electrical Technician</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Spa Therapist" class="filter-checkbox"> Spa Therapist</label>
+                <br>
+                <label><input type="checkbox" name="profession" value="Painter" class="filter-checkbox"> Painter</label>
+                <br> -->
+                <!-- Add more professions as needed -->
             </div>
         </aside>
 
@@ -118,21 +135,50 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            let providers = [];
+
+            // Fetch data from the JSON file
             fetch('data.json')
                 .then(response => response.json())
                 .then(data => {
-                    const cardContainer = document.getElementById('cardContainer');
-                    data.forEach(provider => {
-                        const card = document.createElement('a');
-                        card.className = 'card';
-                        card.href = provider.profileUrl;
-                        card.innerHTML = `<h3>${provider.name}</h3><p>${provider.profession}</p>`;
-                        cardContainer.appendChild(card);
-                    });
+                    providers = data;
+                    displayProviders(providers);  // Display all providers by default
                 })
                 .catch(error => console.error('Error loading data:', error));
+
+            // Function to display service providers
+            function displayProviders(providers) {
+                const cardContainer = document.getElementById('cardContainer');
+                cardContainer.innerHTML = ''; // Clear the container
+                providers.forEach(provider => {
+                    const card = document.createElement('a');
+                    card.className = 'card';
+                    card.href = provider.profileUrl;
+                    card.innerHTML = `<h3>${provider.name}</h3><p>${provider.profession}</p>`;
+                    cardContainer.appendChild(card);
+                });
+            }
+
+            // Function to filter providers based on selected checkboxes
+            function filterProviders() {
+                const checkboxes = document.querySelectorAll('.filter-checkbox');
+                const selectedProfessions = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                // Filter providers based on selected professions
+                const filteredProviders = providers.filter(provider => 
+                    selectedProfessions.length === 0 || selectedProfessions.includes(provider.profession.toLowerCase())
+                );
+                
+                displayProviders(filteredProviders);
+            }
+
+            // Add event listeners to checkboxes for filtering
+            document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', filterProviders);
+            });
         });
     </script>
 </body>
 </html>
-

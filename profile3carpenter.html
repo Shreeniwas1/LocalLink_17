@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&w=800); /* Bangalore skyline image */
+            background-size: cover;
+            background-position: center;
+        }
+        .profile-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .address {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .skills {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .skills-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stars {
+            color: #84c376;
+            font-size: 20px;
+        }
+        .book-btn {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="https://images.pexels.com/photos/5974405/pexels-photo-5974405.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Profile Picture" class="profile-pic">
+        <div class="name">Sarah Wilson</div>
+        <div class="address">123 rambagh, varanasi, India</div>
+        <div class="skills">
+            <div class="skills-title">Skills:</div>
+            <div>behaviour <span class="stars">★★★★★</span></div>
+            <div>work quality: <span class="stars">★★★★★</span></div>
+            <div>punctuation: <span class="stars">★★★★☆</span></div>
+            <div>will you call him again: <span class="stars">★★★☆☆</span></div>
+        </div>
+        <button class="book-btn">Book Me</button>
+    </div>
+
+</body>
+</html>
