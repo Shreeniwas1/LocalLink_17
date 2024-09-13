@@ -1,0 +1,44 @@
+{
+    "locations": [
+        {
+            "pinCode": "110002",
+            "location": "Ajmeri Gate Extension",
+            "problems": [
+                "Water shortage",
+                "Broken streetlights"
+            ]
+        },
+        {
+            "pinCode": "110003",
+            "location": "Aliganj",
+            "problems": [
+                "Potholes on main road",
+                "Garbage collection issues"
+            ]
+        },
+        {
+            "pinCode": "110005",
+            "location": "Anand Parbat",
+            "problems": [
+                "Sewage overflow",
+                "Illegal construction"
+            ]
+        },
+        {
+            "pinCode": "110010",
+            "location": "Army Base",
+            "problems": [
+                "Road blocked",
+                "Water contamination"
+            ]
+        },
+        {
+            "pinCode": "110016",
+            "location": "Ashram",
+            "problems": [
+                "Air pollution",
+                "Noise pollution"
+            ]
+        }
+    ]
+}

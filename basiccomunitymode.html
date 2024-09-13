@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Pin Codes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #000501;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            width: 50px;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 200px;
+            position: fixed;
+            background-color: #333;
+            color: white;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+        .city-link {
+            display: inline-block;
+            color: #010301;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .city-link:hover {
+            background-color: #070a07;
+            color: rgb(8, 1, 1);
+        }
+        .pin-input {
+            display: none;
+            margin-top: 20px;
+        }
+        .pin-input input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .suggestions {
+            list-style-type: none;
+            padding: 0;
+        }
+        .suggestions li {
+            padding: 12px;
+            background-color: #080000;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .suggestions li:hover {
+            background-color: #eaeaea;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .logo {
+width: 200px; /* Increased size from 100px to 150px */
+margin-bottom: 40px;
+}
+.logo img {
+width: 200%;
+height: auto;
+object-fit: contain;
+}
+        .local-issues {
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .local-issues h2 {
+            font-size: 24px;
+            color: #000701;
+            margin-bottom: 15px;
+        }
+        .local-issues ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .local-issues ul li {
+            padding: 10px 0;
+            font-size: 18px;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+        }
+        .local-issues ul li a {
+            color: #555;
+            text-decoration: none;
+        }
+        .local-issues ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="logo1.jpg" alt="Logo" /> <!-- Add your logo here -->
+        Delhi Locations and Local Issues
+    </div>
+
+    <div class="sidebar">
+        <span class="city-link" id="cityLink">Select City</span>
+        <div class="pin-input" id="pinInput">
+            <input type="text" id="pinSearch" placeholder="Start typing pin code...">
+            <ul class="suggestions" id="suggestions"></ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to Delhi City Services</h1>
+        <p>Select the city and enter the pin code to see the matching location.</p>
+
+        <div class="local-issues">
+            <h2>Common Problems Faced by Locals in Delhi</h2>
+            <ul>
+                <li><a href="potholes.html">Potholes on major roads causing traffic delays</a></li>
+                <li><a href="water-supply.html">Lack of proper water supply in several areas</a></li>
+                <li><a href="power-cuts.html">Frequent power cuts affecting daily life</a></li>
+                <li><a href="garbage-disposal.html">Inadequate garbage disposal and cleanliness</a></li>
+                <li><a href="air-pollution.html">Air pollution leading to health issues</a></li>
+                <li><a href="street-vendors.html">Unregulated street vendors blocking pathways</a></li>
+                <li><a href="public-transport.html">Poor public transport connectivity in remote areas</a></li>
+                <li><a href="plantation.html">Limited plantation and green spaces in urban zones</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const cityLink = document.getElementById('cityLink');
+        const pinInput = document.getElementById('pinInput');
+        const pinSearch = document.getElementById('pinSearch');
+        const suggestions = document.getElementById('suggestions');
+
+        const pinCodes = {
+            "110002": "Ajmeri Gate Extension",
+            "110003": "Aliganj",
+            "110005": "Anand Parbat",
+            "110010": "Army Base",
+            "110016": "Ashram",
+            "110018": "Ashok Nagar",
+            "110021": "Ashoka Hotel",
+            "110024": "Amar Colony",
+            "110033": "Adarsh Nagar",
+            "110044": "Badarpur",
+            "110058": "Janakpuri"
+        };
+
+        const showSuggestions = (input) => {
+            suggestions.innerHTML = '';
+            const filteredPins = Object.keys(pinCodes).filter(pin => pin.startsWith(input));
+            filteredPins.forEach(pin => {
+                const li = document.createElement('li');
+                li.textContent = `${pin} - ${pinCodes[pin]}`;
+                li.addEventListener('click', () => {
+                    pinSearch.value = pin;
+                    suggestions.innerHTML = '';
+                });
+                suggestions.appendChild(li);
+            });
+        };
+
+        cityLink.addEventListener('click', () => {
+            pinInput.style.display = 'block';
+            pinSearch.focus();
+        });
+
+        pinSearch.addEventListener('input', (e) => {
+            const value = e.target.value;
+            if (value.length > 0) {
+                showSuggestions(value);
+            } else {
+                suggestions.innerHTML = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
