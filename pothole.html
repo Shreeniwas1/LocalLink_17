@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potholes on Major Roads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .report {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers the content in the section */
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .problem-image {
+            max-width: 25%; /* Increased width for better visibility */
+            height: auto;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+        .upvote-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upvote-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upvote-btn:hover {
+            background-color: #45a049;
+        }
+        .upvote-count {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Potholes on Major Roads Causing Traffic Delays</h1>
+</header>
+
+<main>
+    <section id="problem-section" class="report">
+        <h2 id="problem-title">Problem Description</h2>
+        <p id="problem-description"></p>
+        <img id="problem-image" class="problem-image" src="" alt="Pothole image">
+        
+        <div class="upvote-section">
+            <button class="upvote-btn" onclick="upvote()">Upvote</button>
+            <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const problemData = {
+        title: "Potholes on major roads causing traffic delays",
+        description: "Potholes on several major roads are causing significant traffic delays. The affected areas include key routes that are essential for daily commuters. These potholes not only slow down traffic but also pose a danger to drivers, especially at night when visibility is low.",
+        imageUrl: "https://images.pexels.com/photos/13622966/pexels-photo-13622966.jpeg?auto=compress&cs=tinysrgb&w=800",  // You should replace this with the actual image file path
+        upvotes: 0
+    };
+
+    document.getElementById('problem-title').textContent = problemData.title;
+    document.getElementById('problem-description').textContent = problemData.description;
+    document.getElementById('problem-image').src = problemData.imageUrl;
+
+    function upvote() {
+        problemData.upvotes++;
+        document.getElementById('upvote-count').textContent = 'Upvotes: ' + problemData.upvotes;
+    }
+</script>
+
+</body>
+</html>
