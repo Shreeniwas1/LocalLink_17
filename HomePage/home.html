@@ -10,19 +10,27 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* General container to center content */
+    .container {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px;
     }
 
     /* Header Styles */
     .header {
       width: 100%;
-      max-width: 1440px;
       height: 174px;
-      padding: 32px;
+      padding: 32px 0;
       background: white;
       border-bottom: 1px solid #E0E0E0;
       display: flex;
       align-items: center;
-      gap: 24px;
+      justify-content: space-between;
     }
 
     .logo {
@@ -31,10 +39,7 @@
     }
 
     .navigation {
-      flex: 1;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
       gap: 12px;
     }
 
@@ -92,16 +97,17 @@
     /* Local Link Introduction Styles */
     .intro-section {
       display: flex;
-      max-width: 1440px;
-      margin: 40px auto;
+      margin: 30px auto;
       padding: 32px;
-      gap: 40px;
       background: #F7F7F7;
       border-radius: 12px;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .intro-text {
       flex: 1;
+      margin-right: 40px;
     }
 
     .intro-text h1 {
@@ -124,10 +130,9 @@
     /* Footer Styles */
     .footer {
       width: 100%;
-      max-width: 1440px;
+      padding: 32px 0 160px;
       background: white;
       border-top: 1px solid #D9D9D9;
-      padding: 32px 32px 160px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -177,13 +182,24 @@
       .intro-image {
         width: 100%;
         max-width: 300px;
+        margin-top: 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-column {
+        width: 100%;
+        max-width: 300px;
       }
     }
   </style>
 </head>
 <body>
   <!-- Header Section -->
-  <div class="header">
+  <div class="header container">
     <img src="/assets/logo-no-background.png" alt="Company Logo" class="logo">
     
     <div class="navigation">
@@ -200,18 +216,18 @@
   </div>
 
   <!-- Introducing Local Link Section -->
-  <div class="intro-section">
+  <div class="intro-section container">
     <div class="intro-text">
       <h1>Introducing Local Link</h1>
       <p>At LocalLink, we’re here to do more than just fix your home—we’re shaping a greener, more connected future. Whether you need a plumber, electrician, or any other home service, we’ve got trusted professionals ready to help.</p>
       <p>But we don’t stop there. Got a community issue? Report it, get your neighbors involved, and watch as upvotes turn into real action! Once an issue hits 5,000 upvotes, we send it to the municipality and launch a tender process to solve it.</p>
       <p>Together, we’re creating sustainable cities where homes run smoothly, and communities thrive. Join LocalLink—where taking care of your home means taking care of your city.</p>
     </div>
-    <img src="/assets/logo-black.png" alt="Local Link" class="intro-image">
+    <img src="/assets/logo-color.png" alt="Local Link" class="intro-image">
   </div>
 
   <!-- Footer Section -->
-  <div class="footer">
+  <div class="footer container">
     <!-- First Column: Socials -->
     <div class="footer-column">
       <div class="footer-title">Follow Us</div>
