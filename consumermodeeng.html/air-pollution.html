@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Pollution Leading to Health Issues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .report {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers the content in the section */
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .problem-image {
+            max-width: 25%; /* Increased width for better visibility */
+            height: auto;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+        .upvote-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upvote-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upvote-btn:hover {
+            background-color: #45a049;
+        }
+        .upvote-count {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Air Pollution Leading to Health Issues</h1>
+</header>
+
+<main>
+    <section id="problem-section" class="report">
+        <h2 id="problem-title">Problem Description</h2>
+        <p id="problem-description"></p>
+        <img id="problem-image" class="problem-image" src="" alt="Air pollution issue image">
+        
+        <div class="upvote-section">
+            <button class="upvote-btn" onclick="upvote()">Upvote</button>
+            <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const problemData = {
+        title: "Air pollution leading to health issues",
+        description: "Air pollution has become a major concern in many urban areas, leading to serious health problems for residents. The high levels of pollutants such as particulate matter (PM2.5), nitrogen dioxide (NO2), and sulfur dioxide (SO2) in the air are causing respiratory issues, cardiovascular diseases, and exacerbating existing health conditions. Long-term exposure to polluted air is linked to chronic illnesses and reduced life expectancy. Addressing this issue is crucial to improving public health and ensuring a better quality of life.",
+        imageUrl: "data:image/jpeg;base64,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",  // Replace with the actual image file path
+        upvotes: 0
+    };
+
+    document.getElementById('problem-title').textContent = problemData.title;
+    document.getElementById('problem-description').textContent = problemData.description;
+    document.getElementById('problem-image').src = problemData.imageUrl;
+
+    function upvote() {
+        problemData.upvotes++;
+        document.getElementById('upvote-count').textContent = 'Upvotes: ' + problemData.upvotes;
+    }
+</script>
+
+</body>
+</html>
