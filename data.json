@@ -2,7 +2,7 @@
     {
         "name": "John Doe",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=JohnDoe"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "Jane Smith",
@@ -12,7 +12,7 @@
     {
         "name": "Mike Johnson",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=MikeJohnson"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "Emily Davis",
@@ -42,17 +42,17 @@
     {
         "name": "cringy jayant Johnson",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=MikeJohnson"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "self Johnson",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=MikeJohnson"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "jayant Johnson",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=MikeJohnson"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "new person",
@@ -63,7 +63,7 @@
     {
         "name": "Ravi Prasad",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=JohnDoe"
+        "profileUrl": "profile2elect.html"
     },
     {
         "name": "Rajesh Kumar",
@@ -73,7 +73,7 @@
     {
         "name": "Arvind Patel",
         "profession": "Electrician",
-        "profileUrl": "profile.html?provider=MikeJohnson"
+        "profileUrl": "profile2elect.html"
     }
 
 ]
