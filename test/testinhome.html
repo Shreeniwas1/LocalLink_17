@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Optimized Header with Logo and Footer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Header Styles */
+    .header {
+      width: 100%;
+      max-width: 1700px;
+      height: 174px;
+      padding: 32px;
+      background: white;
+      border-bottom: 1px solid #E0E0E0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+
+    .navigation {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-pill {
+      padding: 12px 16px;
+      background: #F7F7F7;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      color: #333;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-pill:hover {
+      background: #E6E6E6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth {
+      display: flex;
+      gap: 16px;
+    }
+
+    .button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button:hover {
+      background: #F0F0F0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .button:last-child {
+      background: #333;
+      border: 2px solid #333;
+      color: #FFF;
+    }
+
+    .button:last-child:hover {
+      background: #444;
+    }
+
+    .button:first-child {
+      background: #FFF;
+      border: 2px solid #767676;
+      color: #333;
+    }
+
+    /* Footer Styles */
+    .footer {
+      width: 100%;
+      max-width: 17000px;
+      background: white;
+      border-top: 1px solid #D9D9D9;
+      padding: 32px 32px 160px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-column {
+      width: 262px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-title {
+      color: #1E1E1E;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .footer-link {
+      color: #1E1E1E;
+      font-size: 16px;
+      text-decoration: none;
+      line-height: 22px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      background-color: #1E1E1E;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <img src="/assets/logo-no-background.png" alt="Company Logo" class="logo">
+    
+    <div class="navigation">
+      <a href="#pricing" class="nav-pill">Pricing</a>
+      <a href="#solutions" class="nav-pill">Solutions</a>
+      <a href="#community" class="nav-pill">Community</a>
+      <a href="#resources" class="nav-pill">Resources</a>
+      <a href="#contact" class="nav-pill">Contact</a>
+    </div>
+    <div class="auth">
+      <button class="button" id="signin-btn">Sign in</button>
+      <button class="button" id="register-btn">Register</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    <!-- First Column: Socials -->
+    <div class="footer-column">
+      <div class="footer-title">Follow Us</div>
+      <div class="social-icons">
+        <div class="social-icon"></div>
+        <div class="social-icon"></div>
+        <div class="social-icon"></div>
+        <div class="social-icon"></div>
+      </div>
+    </div>
+
+    <!-- Second Column: Use Cases -->
+    <div class="footer-column">
+      <div class="footer-title">Use Cases</div>
+      <a href="#" class="footer-link">UI Design</a>
+      <a href="#" class="footer-link">UX Design</a>
+      <a href="#" class="footer-link">Wireframing</a>
+      <a href="#" class="footer-link">Diagramming</a>
+      <a href="#" class="footer-link">Brainstorming</a>
+      <a href="#" class="footer-link">Online Whiteboard</a>
+      <a href="#" class="footer-link">Team Collaboration</a>
+    </div>
+
+    <!-- Third Column: Explore -->
+    <div class="footer-column">
+      <div class="footer-title">Explore</div>
+      <a href="#" class="footer-link">Design</a>
+      <a href="#" class="footer-link">Prototyping</a>
+      <a href="#" class="footer-link">Development Features</a>
+      <a href="#" class="footer-link">Design Systems</a>
+      <a href="#" class="footer-link">Collaboration Features</a>
+      <a href="#" class="footer-link">Design Process</a>
+      <a href="#" class="footer-link">FigJam</a>
+    </div>
+
+    <!-- Fourth Column: Resources -->
+    <div class="footer-column">
+      <div class="footer-title">Resources</div>
+      <a href="#" class="footer-link">Blog</a>
+      <a href="#" class="footer-link">Best Practices</a>
+      <a href="#" class="footer-link">Colors</a>
+      <a href="#" class="footer-link">Color Wheel</a>
+      <a href="#" class="footer-link">Support</a>
+      <a href="#" class="footer-link">Developers</a>
+      <a href="#" class="footer-link">Resource Library</a>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for buttons
+    document.getElementById('signin-btn').onclick = function() {
+      location.href = '#signin';
+    };
+
+    document.getElementById('register-btn').onclick = function() {
+      location.href = '#register';
+    };
+  </script>
+</body>
+</html>
