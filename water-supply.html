@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lack of Proper Water Supply</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .report {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers the content in the section */
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .problem-image {
+            max-width: 25%; /* Increased width for better visibility */
+            height: auto;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+        .upvote-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upvote-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upvote-btn:hover {
+            background-color: #45a049;
+        }
+        .upvote-count {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lack of Proper Water Supply in Several Areas</h1>
+</header>
+
+<main>
+    <section id="problem-section" class="report">
+        <h2 id="problem-title">Problem Description</h2>
+        <p id="problem-description"></p>
+        <img id="problem-image" class="problem-image" src="" alt="Water supply issue image">
+        
+        <div class="upvote-section">
+            <button class="upvote-btn" onclick="upvote()">Upvote</button>
+            <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const problemData = {
+        title: "Lack of proper water supply in several areas",
+        description: "Residents in multiple areas have been facing a shortage of water supply. The irregular water distribution is causing immense discomfort, with households receiving limited or no water during peak hours. This affects daily activities, and the quality of water is also in question, with reports of contamination. The situation needs immediate attention to prevent health and hygiene issues.",
+        imageUrl: "https://images.pexels.com/photos/28217389/pexels-photo-28217389/free-photo-of-flood-bangladesh.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",  // Replace with the actual image file path
+        upvotes: 0
+    };
+
+    document.getElementById('problem-title').textContent = problemData.title;
+    document.getElementById('problem-description').textContent = problemData.description;
+    document.getElementById('problem-image').src = problemData.imageUrl;
+
+    function upvote() {
+        problemData.upvotes++;
+        document.getElementById('upvote-count').textContent = 'Upvotes: ' + problemData.upvotes;
+    }
+</script>
+
+</body>
+</html>
