@@ -7,7 +7,7 @@
     {
         "name": "Jane Smith",
         "profession": "Plumber",
-        "profileUrl": "profile.html?provider=JaneSmith"
+        "profileUrl": "profile1plumber.html"
     },
     {
         "name": "Mike Johnson",
@@ -17,7 +17,7 @@
     {
         "name": "Emily Davis",
         "profession": "Plumber",
-        "profileUrl": "profile.html?provider=EmilyDavis"
+        "profileUrl": "profile1plumber.html"
     },
     {
         "name": "Sarah Wilson",
@@ -68,7 +68,7 @@
     {
         "name": "Rajesh Kumar",
         "profession": "Plumber",
-        "profileUrl": "profile.html?provider=JaneSmith"
+        "profileUrl": "profile1plumber.html"
     },
     {
         "name": "Arvind Patel",
