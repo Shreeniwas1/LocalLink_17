@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequent Power Cuts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .report {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers the content in the section */
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .problem-image {
+            max-width: 25%; /* Increased width for better visibility */
+            height: auto;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+        .upvote-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upvote-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upvote-btn:hover {
+            background-color: #45a049;
+        }
+        .upvote-count {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Frequent Power Cuts Affecting Daily Life</h1>
+</header>
+
+<main>
+    <section id="problem-section" class="report">
+        <h2 id="problem-title">Problem Description</h2>
+        <p id="problem-description"></p>
+        <img id="problem-image" class="problem-image" src="" alt="Power cut issue image">
+        
+        <div class="upvote-section">
+            <button class="upvote-btn" onclick="upvote()">Upvote</button>
+            <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const problemData = {
+        title: "Frequent power cuts affecting daily life",
+        description: "Residents in several areas are experiencing frequent power cuts, disrupting daily activities and causing inconveniences. The power outages often occur without prior notice and last for several hours, affecting work, study, and essential services like water supply. The issue has been persistent, with no clear solution provided by the authorities. Residents are concerned about the impact on productivity, safety, and the overall quality of life.",
+        imageUrl: "data:image/jpeg;base64,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",  // Replace with the actual image file path
+        upvotes: 0
+    };
+
+    document.getElementById('problem-title').textContent = problemData.title;
+    document.getElementById('problem-description').textContent = problemData.description;
+    document.getElementById('problem-image').src = problemData.imageUrl;
+
+    function upvote() {
+        problemData.upvotes++;
+        document.getElementById('upvote-count').textContent = 'Upvotes: ' + problemData.upvotes;
+    }
+</script>
+
+</body>
+</html>
