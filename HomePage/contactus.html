@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimized Header with Local Link Introduction</title>
+  <title>Contact Us - Local Link</title>
   <style>
     body {
       margin: 0;
@@ -20,6 +20,7 @@
       max-width: 1540px;
       margin: 0 auto;
       padding: 0 32px;
+      flex: 1;
     }
 
     /* Header Styles */
@@ -27,7 +28,7 @@
       padding: 32px 0;
       background: #0e0303;
       border-bottom: 1px solid #000;
-      width: 100%; /* Make header full width */
+      width: 100%;
     }
 
     .header .container {
@@ -93,38 +94,59 @@
       background: #333;
     }
 
-    /* Introduction Section */
-    .intro-section {
+    /* Contact Us Section */
+    .contact-section {
       display: flex;
-      margin: 0 auto 30px auto;
+      flex-direction: column;
+      margin: 40px auto;
       padding: 32px;
-      background: #000; /* Changed to black */
+      background: #f0f0f0;
       border-radius: 12px;
-      justify-content: space-between;
-      align-items: center;
-      flex-grow: 1;
-      color: #fff; /* Set text color to white */
+      color: #000;
     }
 
-    .intro-text {
-      flex: 1;
-      margin-right: 40px;
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      text-align: center;
     }
 
-    .intro-text h1 {
-      font-size: 32px;
-      margin-bottom: 16px;
-      color: #fff; /* Ensure heading is white */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .intro-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #fff; /* Ensure paragraphs are white */
+    .contact-item {
+      margin-bottom: 24px;
+      padding: 16px;
+      background-color: #fff;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .intro-image {
-      width: 400px;
+    .contact-item h3 {
+      font-size: 22px;
+      margin: 0;
+      color: #333;
+    }
+
+    .contact-item p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
     }
 
     /* Footer Styles */
@@ -133,6 +155,7 @@
       padding: 32px 0;
       background: #fff;
       border-top: 1px solid #000;
+      margin-top: auto;
     }
 
     .footer .container {
@@ -185,16 +208,6 @@
     }
 
     @media (max-width: 768px) {
-      .intro-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .intro-image {
-        max-width: 300px;
-        margin-top: 20px;
-      }
-
       .footer .container {
         flex-direction: column;
         align-items: center;
@@ -217,7 +230,7 @@
         <a href="/consmermodeeng1.html" class="nav-pill">Consumer Mode</a>
         <a href="/basiccomunitymode.html" class="nav-pill">Community Mode</a>
         <a href="#resources" class="nav-pill">Resources</a>
-        <a href="/HomePage/contactus.html" class="nav-pill">Contact</a>
+        <a href="#contact" class="nav-pill">Contact</a>
       </div>
       
       <div class="auth">
@@ -227,15 +240,23 @@
     </div>
   </div>
 
-  <!-- Introduction Section -->
-  <div class="intro-section container">
-    <div class="intro-text">
-      <h1>Introducing Local Link</h1>
-      <p>At LocalLink, we’re shaping a greener, more connected future. Whether you need a plumber, electrician, or any other home service, we’ve got trusted professionals ready to help.</p>
-      <p>Have a community issue? Report it, get your neighbors involved, and once it hits 5,000 upvotes, we send it to the municipality for action!</p>
-      <p>Join LocalLink—where taking care of your home means taking care of your city.</p>
-    </div>
-    <img src="/assets/logo-color.png" alt="Local Link" class="intro-image">
+  <!-- Contact Us Section -->
+  <div class="contact-section container">
+    <h2>Contact Us</h2>
+    <ul class="contact-list">
+      <li class="contact-item">
+        <h3>Shreeniwas</h3>
+        <p>Email: <a href="mailto:shreeniwas@dummyemail.com">shreeniwas.23bce7176@vitapstudent.ac.in</a></p>
+      </li>
+      <li class="contact-item">
+        <h3>Srijana</h3>
+        <p>Email: <a href="mailto:srijana@dummyemail.com">srijana.23bce7150@vitapstudent.ac.in</a></p>
+      </li>
+      <li class="contact-item">
+        <h3>Jayant</h3>
+        <p>Email: <a href="mailto:jayant@dummyemail.com">jayant.23bce7638@vitapstudent.ac.in</a></p>
+      </li>
+    </ul>
   </div>
 
   <!-- Footer Section -->
@@ -253,9 +274,9 @@
 
       <div class="footer-column">
         <div class="footer-title">Use Cases</div>
-        <a href="#" class="footer-link">Cities</a>
-        <a href="#" class="footer-link">Pincodes</a>
-        <!-- <a href="#" class="footer-link"></a> -->
+        <a href="#" class="footer-link">UI Design</a>
+        <a href="#" class="footer-link">UX Design</a>
+        <a href="#" class="footer-link">Wireframing</a>
       </div>
 
       <div class="footer-column">
@@ -277,11 +298,11 @@
   <script>
     // JavaScript for buttons
     document.getElementById('signin-btn').onclick = function() {
-      location.href = '/login/login.html';
+      location.href = '#signin';
     };
 
     document.getElementById('register-btn').onclick = function() {
-      location.href = 'signup.html';
+      location.href = '#register';
     };
   </script>
 </body>
