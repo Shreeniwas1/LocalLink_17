@@ -26,7 +26,6 @@
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Centers the content in the section */
         }
         h1 {
             color: #333;
@@ -37,7 +36,7 @@
             color: #555;
         }
         .problem-image {
-            max-width: 25%; /* Increased width for better visibility */
+            max-width: 25%;
             height: auto;
             border-radius: 6px;
             margin-top: 5px;
@@ -62,6 +61,16 @@
             font-size: 18px;
             margin-top: 10px;
         }
+        .blinking {
+            animation: blinker 1.5s linear infinite;
+            font-weight: bold;
+            color: red;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -75,19 +84,39 @@
         <h2 id="problem-title">Problem Description</h2>
         <p id="problem-description"></p>
         <img id="problem-image" class="problem-image" src="" alt="Pothole image">
-        
-        <div class="upvote-section">
-            <button class="upvote-btn" onclick="upvote()">Upvote</button>
-            <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
-        </div>
     </section>
+
+    <div class="upvote-section">
+        <button class="upvote-btn" onclick="upvote()">Upvote</button>
+        <div class="upvote-count" id="upvote-count">Upvotes: 0</div>
+    </div>
+    <div id="message" class="blinking" style="display:none;">
+        But there are some tenders from government which can solve this problem.
+    </div>
 </main>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
+    emailjs.init('YOUR_EMAILJS_USER_ID');  // Replace with your EmailJS user ID
+
+    function sendEmail(title, description, upvotes) {
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            title: title,
+            description: description,
+            upvotes: upvotes
+        })
+        .then(response => {
+            console.log('Email sent successfully:', response);
+        })
+        .catch(error => {
+            console.error('Failed to send email:', error);
+        });
+    }
+
     const problemData = {
         title: "Potholes on major roads causing traffic delays",
         description: "Potholes on several major roads are causing significant traffic delays. The affected areas include key routes that are essential for daily commuters. These potholes not only slow down traffic but also pose a danger to drivers, especially at night when visibility is low.",
-        imageUrl: "https://images.pexels.com/photos/13622966/pexels-photo-13622966.jpeg?auto=compress&cs=tinysrgb&w=800",  // You should replace this with the actual image file path
+        imageUrl: "https://images.pexels.com/photos/13622966/pexels-photo-13622966.jpeg?auto=compress&cs=tinysrgb&w=800",
         upvotes: 0
     };
 
@@ -98,6 +127,14 @@
     function upvote() {
         problemData.upvotes++;
         document.getElementById('upvote-count').textContent = 'Upvotes: ' + problemData.upvotes;
+
+        if (problemData.upvotes === 10) {
+            sendEmail(problemData.title, problemData.description, problemData.upvotes);
+            document.getElementById('message').style.display = 'block'; // Show the message
+            setTimeout(() => {
+                window.location.href = 'tender-details.html';  // Redirect to the tender details page
+            }, 5000);  // Wait 5 seconds before redirecting
+        }
     }
 </script>
 

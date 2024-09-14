@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tender Detail</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #000305;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        .tender-detail {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(80, 123, 196, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tender Detail</h1>
+</header>
+
+<main>
+    <section class="tender-detail">
+        <h2 id="tender-title">Tender Title</h2>
+        <p id="tender-description">Tender Description</p>
+
+        <h3>Apply for Tender</h3>
+        <form id="application-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" required>
+
+            <label for="details">Additional Details:</label>
+            <textarea id="details" name="details" rows="4" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const tender = params.get('tender');
+
+        const titles = {
+            'potholes': 'Potholes on Major Roads Causing Traffic Delays',
+            'water-supply': 'Lack of Proper Water Supply in Several Areas',
+            'power-cuts': 'Frequent Power Cuts Affecting Daily Life',
+            'garbage-disposal': 'Inadequate Garbage Disposal and Cleanliness',
+            'air-pollution': 'Air Pollution Leading to Health Issues',
+            'street-vendors': 'Unregulated Street Vendors Blocking Pathways',
+            'public-transport': 'Poor Public Transport Connectivity in Remote Areas',
+            'plantation': 'Limited Plantation and Green Spaces in Urban Zones'
+        };
+
+        const descriptions = {
+            'potholes': 'Details about the potholes issue...',
+            'water-supply': 'Details about the water supply issue...',
+            'power-cuts': 'Details about the power cuts issue...',
+            'garbage-disposal': 'Details about the garbage disposal issue...',
+            'air-pollution': 'Details about the air pollution issue...',
+            'street-vendors': 'Details about the street vendors issue...',
+            'public-transport': 'Details about the public transport issue...',
+            'plantation': 'Details about the plantation issue...'
+        };
+
+        document.getElementById('tender-title').textContent = titles[tender] || 'Tender Title';
+        document.getElementById('tender-description').textContent = descriptions[tender] || 'Tender Description';
+    });
+
+    document.getElementById('application-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Application submitted successfully!');
+    });
+</script>
+
+</body>
+</html>
