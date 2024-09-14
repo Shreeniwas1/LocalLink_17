@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimized Header with Local Link Introduction</title>
+  <title>Sign Up - Consumer or Vendor</title>
   <style>
     body {
       margin: 0;
@@ -20,6 +20,7 @@
       max-width: 1540px;
       margin: 0 auto;
       padding: 0 32px;
+      flex: 1; /* Ensures the content grows to fill the available space */
     }
 
     /* Header Styles */
@@ -27,7 +28,7 @@
       padding: 32px 0;
       background: #0e0303;
       border-bottom: 1px solid #000;
-      width: 100%; /* Make header full width */
+      width: 100%;
     }
 
     .header .container {
@@ -93,38 +94,65 @@
       background: #333;
     }
 
-    /* Introduction Section */
-    .intro-section {
+    /* Sign-up Section */
+    .signup-section {
       display: flex;
-      margin: 0 auto 30px auto;
-      padding: 32px;
-      background: #000; /* Changed to black */
-      border-radius: 12px;
       justify-content: space-between;
-      align-items: center;
-      flex-grow: 1;
-      color: #fff; /* Set text color to white */
+      margin: 40px auto;
+      padding: 32px;
+      background: #f0f0f0;
+      border-radius: 12px;
+      color: #000;
     }
 
-    .intro-text {
+    .signup-option {
       flex: 1;
-      margin-right: 40px;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      border: 1px solid #ccc;
     }
 
-    .intro-text h1 {
-      font-size: 32px;
+    .signup-option:last-child {
+      margin-right: 0;
+    }
+
+    .signup-option h2 {
       margin-bottom: 16px;
-      color: #fff; /* Ensure heading is white */
+      font-size: 24px;
+      color: #333;
     }
 
-    .intro-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #fff; /* Ensure paragraphs are white */
+    .signup-option form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .intro-image {
-      width: 400px;
+    .signup-option input[type="text"],
+    .signup-option input[type="email"],
+    .signup-option input[type="password"] {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .signup-option button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-option button:hover {
+      background-color: #333;
     }
 
     /* Footer Styles */
@@ -133,6 +161,7 @@
       padding: 32px 0;
       background: #fff;
       border-top: 1px solid #000;
+      margin-top: auto; /* Ensures the footer is pushed to the bottom */
     }
 
     .footer .container {
@@ -182,19 +211,20 @@
       .footer-column {
         width: calc(50% - 32px);
       }
+
+      .signup-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .signup-option {
+        margin-bottom: 20px;
+        margin-right: 0;
+        width: 100%;
+      }
     }
 
     @media (max-width: 768px) {
-      .intro-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .intro-image {
-        max-width: 300px;
-        margin-top: 20px;
-      }
-
       .footer .container {
         flex-direction: column;
         align-items: center;
@@ -227,15 +257,29 @@
     </div>
   </div>
 
-  <!-- Introduction Section -->
-  <div class="intro-section container">
-    <div class="intro-text">
-      <h1>Introducing Local Link</h1>
-      <p>At LocalLink, we’re shaping a greener, more connected future. Whether you need a plumber, electrician, or any other home service, we’ve got trusted professionals ready to help.</p>
-      <p>Have a community issue? Report it, get your neighbors involved, and once it hits 5,000 upvotes, we send it to the municipality for action!</p>
-      <p>Join LocalLink—where taking care of your home means taking care of your city.</p>
+  <!-- Sign-up Section -->
+  <div class="signup-section container">
+    <!-- Consumer Sign-up Form -->
+    <div class="signup-option">
+      <h2>Sign Up as Consumer</h2>
+      <form action="/consumer-signup" method="post">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up as Consumer</button>
+      </form>
     </div>
-    <img src="/assets/logo-color.png" alt="Local Link" class="intro-image">
+
+    <!-- Vendor Sign-up Form -->
+    <div class="signup-option">
+      <h2>Sign Up as Vendor</h2>
+      <form action="/vendor-signup" method="post">
+        <input type="text" placeholder="Business Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up as Vendor</button>
+      </form>
+    </div>
   </div>
 
   <!-- Footer Section -->
