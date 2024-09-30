@@ -39,6 +39,14 @@
                 "Air pollution",
                 "Noise pollution"
             ]
+        },
+        {
+            "pinCode": "110017",
+            "location": "Ashram",
+            "problems": [
+                "Air pollution",
+                "Noise pollution"
+            ]
         }
     ]
 }
